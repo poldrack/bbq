@@ -1,0 +1,28 @@
+---
+title: 'Data Science: Ribs'
+output:
+  html_document:
+    df_print: paged
+---
+
+Cooking ribs on July 20, 2018 using the Weber Smoky Mountain smoker.
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+time=c('11:40','11:50','12:00')
+meatTemp=c(59,81,117)
+airTemp=c(201,212,210)
+
+hm=as.POSIXct(strptime(time, '%H:%M',tz='GMT')) 
+df=data.frame(meatTemp,airTemp,hm) %>%
+  gather(source,temp,-hm)
+ggplot(df,aes(hm,temp,color=source)) + 
+  geom_line() + 
+  ylab('Temperature') +
+  xlab('Time') 
+  
+
+```
