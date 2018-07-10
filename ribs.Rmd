@@ -11,7 +11,7 @@ Here's what they looked like to start:
 
 ![starting image](ribs_start.png)
 
-This code plots the meat and air temperature, both measured using the Maverick BBQ thermometer.
+This code plots the meat and air temperature, both measured using the Maverick BBQ thermometer.  The cooker temperature is remarkably stable today, with little need to futz with the vents.
 
 ```{r}
 library(ggplot2)
