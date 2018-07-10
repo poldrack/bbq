@@ -11,16 +11,16 @@ Here's what they looked like to start, using two racks of St. Louis ribs from ou
 
 ![Ribs going into the smoker](ribs_start.png)
 
-This code plots the meat and air temperature, both measured using the Maverick BBQ thermometer.  The vents all started at about 10% open, and the dashed vertical lines indicate changes in venting (closing in red, opening in green). The black dotted line indicates points when we removed the cover to check the meat and baste it with a bit of apple juice.
+This code plots the meat and air temperature, both measured using the Maverick BBQ thermometer.  The vents all started at about 10% open, and the dashed vertical lines indicate changes in venting (closing in red, opening in green). The black dotted line indicates points when we removed the cover to check the meat and baste it with a bit of apple juice (and sometimes add more water to the pan).
 
 ```{r}
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52','13:03','13:14','13:24','13:36','13:51','13:57','14:03','14:15','14:29','14:41')
-meatTemp=c(59,81,117,140,151,156,162,163,167,169,172,174,176,176,176,178,178,180)
-airTemp=c(201,212,210,217,221,223,226,230,234,232,232,234,230,228,234,237,232,241)
+time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52','13:03','13:14','13:24','13:36','13:51','13:57','14:03','14:15','14:29','14:41',"14:52","14:54",'15:00')
+meatTemp=c(59,81,117,140,151,156,162,163,167,169,172,174,176,176,176,178,178,180,176,174,172)
+airTemp=c(201,212,210,217,221,223,226,230,234,232,232,234,230,228,234,237,232,241,252,279,265)
 
 hm=as.POSIXct(strptime(time, '%H:%M',tz='GMT')) 
 df=data.frame(meatTemp,airTemp,hm) %>%
@@ -31,7 +31,7 @@ p=ggplot(df,aes(hm,temp,color=source)) +
   xlab('Time') 
 
 # add horizontal lines for vent adjustments
-reductions=c('12:23','12:50','13:03','14:03','14:16','14:45')
+reductions=c('12:23','12:50','13:03','14:03','14:16','14:45','14:53')
 for (t in reductions){
   p = p + geom_vline(xintercept = as.POSIXct(strptime(t, '%H:%M',tz='GMT')) ,linetype='dashed',size=0.5,color='red')
 }
@@ -48,4 +48,6 @@ print(p)
 
 ```
 
-The cooker temperature is remarkably stable today, with little need to futz with the vents.  I've never used internal temperature with ribs before -- based on [Are my ribs ready yet?](https://amazingribs.com/tested-recipes/pork-ribs-recipes/are-my-ribs-ready-yet) I'm shooting for 195-200, but will test with the "tear test" once we hit 4 hours even if temp is not there.  Also interested to see if we get a [stall](https://amazingribs.com/more-technique-and-science/more-cooking-science/understanding-and-beating-barbecue-stall-bane-all) with ribs like one does with brisket.  
+The cooker temperature was remarkably stable for the first 2 1/2 hours today, with little need to futz with the vents.  However, after checking it for doneness at 3 hours, the temp went a bit out of control and I had to shut the vents completely to get it back into range.
+
+I've never used internal temperature with ribs before -- based on [Are my ribs ready yet?](https://amazingribs.com/tested-recipes/pork-ribs-recipes/are-my-ribs-ready-yet) I'm shooting for 195-200, but will test with the "tear test" once we hit 4 hours even if temp is not there.  Also interested to see if we get a [stall](https://amazingribs.com/more-technique-and-science/more-cooking-science/understanding-and-beating-barbecue-stall-bane-all) with ribs like one does with brisket.  
