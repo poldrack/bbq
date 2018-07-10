@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-Cooking ribs on July 20, 2018 using the Weber Smoky Mountain smoker, mostly following the method outlined at the [Virtual Weber Bullet](http://virtualweberbullet.com/rib2.html).  
+Cooking ribs on July 10, 2018 using the Weber Smoky Mountain smoker, mostly following the method outlined at the [Virtual Weber Bullet](http://virtualweberbullet.com/rib2.html).  
 
 Here's what they looked like to start, using two racks of St. Louis ribs from our [awesome neighborhood butcher](http://avedanos.com/). Had to cut down the two racks to fit in the smoker:
 
