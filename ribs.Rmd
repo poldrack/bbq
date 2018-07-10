@@ -21,16 +21,22 @@ library(tidyr)
 time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52')
 meatTemp=c(59,81,117,140,151,156,162,163)
 airTemp=c(201,212,210,217,221,223,226,230)
-# 12:23 - reduced venting slightly
+
 hm=as.POSIXct(strptime(time, '%H:%M',tz='GMT')) 
 df=data.frame(meatTemp,airTemp,hm) %>%
   gather(source,temp,-hm)
-ggplot(df,aes(hm,temp,color=source)) + 
+p=ggplot(df,aes(hm,temp,color=source)) + 
   geom_line() + 
   ylab('Temperature') +
-  xlab('Time') +
-  geom_vline(xintercept = as.POSIXct(strptime('12:23', '%H:%M',tz='GMT')) ,linetype='dashed',size=0.5,color='red')
+  xlab('Time') 
+
+# add horizontal lines for vent adjustments
+reductions=c('12:23','12:50')
+for (t in reductions){
+  p = p + geom_vline(xintercept = as.POSIXct(strptime(t, '%H:%M',tz='GMT')) ,linetype='dashed',size=0.5,color='red')
+}
   
+print(p) 
 
 ```
 
