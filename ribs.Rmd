@@ -18,9 +18,9 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43')
-meatTemp=c(59,81,117,140,151,156,162)
-airTemp=c(201,212,210,217,221,223,226)
+time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52')
+meatTemp=c(59,81,117,140,151,156,162,163)
+airTemp=c(201,212,210,217,221,223,226,230)
 # 12:23 - reduced venting slightly
 hm=as.POSIXct(strptime(time, '%H:%M',tz='GMT')) 
 df=data.frame(meatTemp,airTemp,hm) %>%
