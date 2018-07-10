@@ -18,9 +18,9 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52','13:03','13:14','13:24','13:36','13:51')
-meatTemp=c(59,81,117,140,151,156,162,163,167,169,172,174,176)
-airTemp=c(201,212,210,217,221,223,226,230,234,232,232,234,230)
+time=c('11:40','11:50','12:00','12:12','12:22','12:32','12:43','12:52','13:03','13:14','13:24','13:36','13:51','13:57','14:03')
+meatTemp=c(59,81,117,140,151,156,162,163,167,169,172,174,176,176,176)
+airTemp=c(201,212,210,217,221,223,226,230,234,232,232,234,230,228,234)
 
 hm=as.POSIXct(strptime(time, '%H:%M',tz='GMT')) 
 df=data.frame(meatTemp,airTemp,hm) %>%
@@ -31,11 +31,15 @@ p=ggplot(df,aes(hm,temp,color=source)) +
   xlab('Time') 
 
 # add horizontal lines for vent adjustments
-reductions=c('12:23','12:50','13:03')
+reductions=c('12:23','12:50','13:03','14:03')
 for (t in reductions){
   p = p + geom_vline(xintercept = as.POSIXct(strptime(t, '%H:%M',tz='GMT')) ,linetype='dashed',size=0.5,color='red')
 }
-  
+increases=c('13:56')
+for (t in increases){
+  p = p + geom_vline(xintercept = as.POSIXct(strptime(t, '%H:%M',tz='GMT')) ,linetype='dashed',size=0.5,color='green')
+}
+ 
 print(p) 
 
 ```
