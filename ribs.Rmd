@@ -51,3 +51,11 @@ print(p)
 The cooker temperature was remarkably stable for the first 2 1/2 hours today, with little need to futz with the vents.  However, after checking it for doneness at 3 hours, the temp went a bit out of control and I had to shut the vents completely to get it back into range.
 
 I've never used internal temperature with ribs before -- based on [Are my ribs ready yet?](https://amazingribs.com/tested-recipes/pork-ribs-recipes/are-my-ribs-ready-yet) I'm shooting for 195-200, but will test with the "tear test" once we hit 4 hours even if temp is not there.  Also interested to see if we get a [stall](https://amazingribs.com/more-technique-and-science/more-cooking-science/understanding-and-beating-barbecue-stall-bane-all) with ribs like one does with brisket.  
+
+We took the ribs off after a bit more than 5 hours, right when they hit 195 degrees.  
+
+![The final product](ribs_June10_2018_after.png)
+
+### The verdict
+
+Overall the ribs were very tasty and well cooked - the thinner ends were a bit overcooked and disintegrating, but the thicker parts were perfectly done.  My main change for next time would be to use a lot more black pepper in the rub - I was a bit skimpy this time and it showed.  
